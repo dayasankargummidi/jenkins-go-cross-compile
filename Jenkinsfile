@@ -29,11 +29,11 @@ node('slave1') {
   }
 
 stage('Build image') {
-        sh "cp ${goPath}/binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64 ."
+        sh "cp binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64 ."
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("dayasankargummidi/hellonode")
+        app = docker.build("dayasankargummidi/jenkins-go-cross-compile")
     }
 
 
