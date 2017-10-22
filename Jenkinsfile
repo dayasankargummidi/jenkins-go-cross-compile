@@ -28,6 +28,15 @@ node('slave1') {
     }
   }
 
+stage('Build image') {
+        sh "cp ${goPath}/binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64 ."
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        app = docker.build("dayasankargummidi/hellonode")
+    }
+
+
   stage("Archive artifacts") {
     // Archive the binary files in Jenkins so we can retrieve them later should we need to audit them
     archiveArtifacts artifacts: 'binaries/**', fingerprint: true
