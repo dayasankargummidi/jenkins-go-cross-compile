@@ -8,7 +8,7 @@ node('slave1') {
   // a basic build number so that when we build and push to Artifactory we will not overwrite our previous builds
   String buildNumber = "0.1.${env.BUILD_NUMBER}"
   // Path we will mount the project to for the Docker container
-  String goPath = "/go/src/github.com/reynn/${applicationName}"
+  String goPath = "/go/src/github.com/dayasankargummidi/${applicationName}"
 
   // Checkout the code from Github, stages allow Jenkins to visualize the different sections of your build steps in the UI
   stage('Checkout from GitHub') {
